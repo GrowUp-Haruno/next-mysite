@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import './ColorPalette.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  color: $paragraph-color;
+  background-color: $main-color;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading-color;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.container {
+  min-height: 200vh;
+  // padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  top: -56px;
+  width: 100%;
+  height: 96px;
+  border-bottom: 1px solid $accent-color;
+  padding: 0 2rem;
+  background-color: $main-color;
+  & .header-inner {
+    flex-grow: 1;
+    position: sticky;
+    display: flex;
+    // top:0;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    & .header-logo {
+      font-size: 1.5rem;
+    }
+    & .header-list {
+      list-style: none;
+    }
+  }
+}
