@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Header } from '../components/Header/Header';
 import { client } from '../libs/client';
 import { microcmsDataType } from '../models/microcms';
@@ -18,12 +19,53 @@ const Home: NextPage<{ blogs: microcmsDataType }> = ({ blogs }) => {
       <div className="container">
         <Header />
         <main>
-          <h1>h1</h1>
-          <h2>h2</h2>
-          <h3>h3</h3>
-          <h4>h4</h4>
-          <h5>h5</h5>
-          <h6>h6</h6>
+          <article>
+            <article>
+              <Link href="./">
+                <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={400} height={320} />
+              </Link>
+              <Link href="./">
+                <p>記事タイトル</p>
+              </Link>
+              <p>日付</p>
+            </article>
+            <article>
+              <Link href="./">
+                <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={400} height={320} />
+              </Link>
+              <Link href="./">
+                <p>記事タイトル</p>
+              </Link>
+              <p>日付</p>
+            </article>
+            <article>
+              <Link href="./">
+                <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={400} height={320} />
+              </Link>
+              <Link href="./">
+                <p>記事タイトル</p>
+              </Link>
+              <p>日付</p>
+            </article>
+            <article>
+              <Link href="./">
+                <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={400} height={320} />
+              </Link>
+              <Link href="./">
+                <p>記事タイトル</p>
+              </Link>
+              <p>日付</p>
+            </article>
+            <article>
+              <Link href="./">
+                <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={400} height={320} />
+              </Link>
+              <Link href="./">
+                <p>記事タイトル</p>
+              </Link>
+              <p>日付</p>
+            </article>
+          </article>
         </main>
       </div>
     </>
