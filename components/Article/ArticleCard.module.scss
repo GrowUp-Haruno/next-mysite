@@ -1,0 +1,63 @@
+.articleCard {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-main);
+
+  // サムネイル画像
+  div:nth-child(1) {
+    // > span {
+    //   position: unset !important;
+    //   img {
+    //     position: relative !important;
+    //     width: 100% !important;
+    //     height: unset !important;
+    //   }
+    // }
+    width: 100%;
+    height: 200px;
+    background-color: #61dafb;
+  }
+
+  // テキスト群
+  div:nth-child(2) {
+    padding: 24px;
+
+    // 投稿日時
+    > p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #adadad;
+      }
+    }
+
+    // シリーズタイトル
+    > h3 {
+      margin-top: 16px;
+    }
+
+    // 記事タイトル
+    > h2 {
+      margin-top: 8px;
+      height: 72px;
+    }
+
+    // タグ
+    > div {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      span {
+        display: block;
+        background-color: var(--color-accent);
+        padding: 2px 8px;
+      }
+    }
+  }
+}

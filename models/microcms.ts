@@ -6,21 +6,22 @@ export type microcmsDataType = {
       updatedAt: string;
       publishedAt: string;
       revisedAt: string;
-      title: string;
+      mainTitle: string;
+      seriesTitle: string;
       content: string;
       eyecatch: {
         url: string;
         height: number;
         width: number;
-      };
-      category: {
+      } | undefined;
+      categorys: Array<{
         id: string;
         createdAt: string;
         updatedAt: string;
         publishedAt: string;
         revisedAt: string;
         name: string;
-      };
+      }>;
     }
   ];
   totalCount: number;

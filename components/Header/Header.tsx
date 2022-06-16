@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header className={style.header}>
       <div>
-        <div>はるろぐ</div>
+        <div>Logo</div>
         <ul>
           <li>
             <p>blog</p>
