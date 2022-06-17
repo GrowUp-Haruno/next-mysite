@@ -1,30 +1,31 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
+import { formatDate } from '../../libs/formatDate';
+import { categoryType, eyecatchType } from '../../models/microcms';
 import style from './ArticleCard.module.scss';
 
 type propsType = {
-  eyecatchUrl: string | undefined;
+  createdAt: string;
   updatedAt: string;
   mainTitle: string;
-  seriesTitle: string | undefined;
-  categoryName: string;
+  subTitle: string | undefined;
+  eyecatchUrl: eyecatchType;
+  categories: Array<categoryType>;
 };
 
-export const ArticleCard: NextPage<{}> = (props) => {
+export const ArticleCard: NextPage<propsType> = (props) => {
+  const createDate = formatDate(new Date(props.createdAt));
+  // const updateDate = formatDate(new Date(props.updatedAt))
+
   return (
     <article className={style.articleCard}>
-      <div>
-
-      </div>
-      {/* <div>
-        <Image src="/images/thumbnail01.jpg" alt="サムネイル１" layout="fill" objectFit="contain" />
-      </div> */}
+      <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={360} height={189} objectFit="contain" />
       <div>
         <p>
-          <time dateTime="2022-06-15T02:32:47.000Z">2022.06.15[Wed]</time>
+          <time dateTime={props.createdAt}>{createDate}</time>
         </p>
-        <h3>シリーズタイトル</h3>
-        <h2>Shopify アプリ開発(GraphQL準備編)</h2>
+        <h3>{props.subTitle}</h3>
+        <h2>{props.mainTitle}</h2>
         <div>
           <span>React</span>
           <span>Next.js</span>

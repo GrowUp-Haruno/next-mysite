@@ -10,6 +10,7 @@
 
   --width-pc: 1000px;
   --width-tablet: 580px;
+  --width-phone: 360px;
 }
 
 * {
@@ -63,15 +64,6 @@ h6 {
   line-height: 1.5;
 }
 
-.container {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 main {
   height: 100vh;
   margin: 56px auto 0 auto;
@@ -81,6 +73,9 @@ main {
     width: var(--width-tablet);
   }
   @media (max-width: 599px) {
+    width: var(--width-phone);
+  }
+  @media (max-width: 359px) {
     width: 90%;
   }
 }

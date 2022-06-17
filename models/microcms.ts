@@ -1,3 +1,18 @@
+export type eyecatchType = {
+  url: string;
+  height: number;
+  width: number;
+};
+
+export type categoryType = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  name: string;
+};
+
 export type microcmsDataType = {
   contents: [
     {
@@ -9,19 +24,8 @@ export type microcmsDataType = {
       mainTitle: string;
       seriesTitle: string;
       content: string;
-      eyecatch: {
-        url: string;
-        height: number;
-        width: number;
-      } | undefined;
-      categorys: Array<{
-        id: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-        revisedAt: string;
-        name: string;
-      }>;
+      eyecatch: eyecatchType;
+      categories: Array<categoryType>;
     }
   ];
   totalCount: number;
