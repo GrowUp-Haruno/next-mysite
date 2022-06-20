@@ -1,31 +1,31 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { formatDate } from '../../libs/formatDate';
-import { categoryType, eyecatchType } from '../../models/microcms';
+import { contentsType } from '../../models/microcms';
 import style from './ArticleCard.module.scss';
 
-type propsType = {
-  createdAt: string;
-  updatedAt: string;
-  mainTitle: string;
-  subTitle: string | undefined;
-  eyecatchUrl: eyecatchType;
-  categories: Array<categoryType>;
-};
 
-export const ArticleCard: NextPage<propsType> = (props) => {
-  const createDate = formatDate(new Date(props.createdAt));
-  // const updateDate = formatDate(new Date(props.updatedAt))
+export const ArticleCard: NextPage<{ contents: contentsType }> = (props) => {
+  const createDate = formatDate(new Date(props.contents.createdAt));
+  const updateDate = formatDate(new Date(props.contents.updatedAt));
 
   return (
     <article className={style.articleCard}>
-      <Image src="/images/thumbnail01.jpg" alt="サムネイル１" width={360} height={189} objectFit="contain" />
+      <Image src={props.contents.eyecatch.url} alt="サムネイル１" width={360} height={189} objectFit="contain" />
       <div>
         <p>
-          <time dateTime={props.createdAt}>{createDate}</time>
+          <time dateTime={props.contents.createdAt}>
+            <Image src="/icons/filePenSolid.svg" width={12} height={12} alt="作成日時" />
+            {createDate}
+          </time>
+
+          <time dateTime={props.contents.updatedAt}>
+            <Image src="/icons/arrowsRotateSolid.svg" width={12} height={12} alt="更新日時" />
+            {updateDate}
+          </time>
         </p>
-        <h3>{props.subTitle}</h3>
-        <h2>{props.mainTitle}</h2>
+        <h3>{props.contents.subTitle}</h3>
+        <h2>{props.contents.mainTitle}</h2>
         <div>
           <span>React</span>
           <span>Next.js</span>
