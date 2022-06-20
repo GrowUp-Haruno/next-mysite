@@ -13,21 +13,21 @@ export type categoryType = {
   name: string;
 };
 
+export type contentsType = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  mainTitle: string;
+  subTitle: string;
+  content: string;
+  eyecatch: eyecatchType;
+  categories: Array<categoryType>;
+};
+
 export type microcmsDataType = {
-  contents: [
-    {
-      id: string;
-      createdAt: string;
-      updatedAt: string;
-      publishedAt: string;
-      revisedAt: string;
-      mainTitle: string;
-      seriesTitle: string;
-      content: string;
-      eyecatch: eyecatchType;
-      categories: Array<categoryType>;
-    }
-  ];
+  contents: Array<contentsType>;
   totalCount: number;
   offset: number;
   limit: number;

@@ -8,8 +8,8 @@ import { Header } from '../components/Header/Header';
 import { client } from '../libs/client';
 import { microcmsDataType } from '../models/microcms';
 
-const Home: NextPage<{ blogs: microcmsDataType }> = ({ blogs }) => {
-  console.log(blogs);
+const Home: NextPage<{ blogs: microcmsDataType }> = (props) => {
+  console.log(props.blogs);
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ const Home: NextPage<{ blogs: microcmsDataType }> = ({ blogs }) => {
       <Header />
 
       <main>
-        <ArticleCardList />
+        <ArticleCardList blogContents={props.blogs.contents} />
       </main>
     </>
   );
