@@ -6,55 +6,44 @@
   // テキスト群
   > div {
     padding: 24px;
-
-    // 投稿日時
-    > p {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+     // 投稿日時
+      > p {
       display: flex;
       align-items: center;
       justify-content: start;
-      gap:16px;
+      gap: 16px;
       font-size: 1rem;
       > time {
         display: flex;
-        gap:8px;
-      }
-      @media (max-width: 1024px) {
+        gap: 8px;
         font-size: 0.75rem;
-        > time {
-          gap: 6px;
-        }
       }
-      
-      @media (max-width: 599px) {
-        font-size: 1rem;
-        > time {
-          gap: 8px;
-        }
-      }
-    }
-
-    // シリーズタイトル
-    > h3 {
-      margin-top: 16px;
     }
 
     // 記事タイトル
     > h2 {
-      margin-top: 8px;
+      // margin-top: 8px;
       height: 72px;
     }
 
     // タグ
     > div {
-      display: flex;
-      gap: 8px;
-      margin-top: 16px;
-      span {
-        display: block;
-        background-color: #999999;
-        // background-color: var(--color-accent);
-        padding: 2px 8px;
-        color: var(--color-base);
+      padding-top: 8px;
+      // margin-top: 8px;
+      > ul {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        span {
+          display: block;
+          background-color: #999999;
+          padding: 2px 8px;
+          color: var(--color-base);
+          font-size: 12px;
+        }
       }
     }
   }
