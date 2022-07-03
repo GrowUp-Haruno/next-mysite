@@ -24,11 +24,6 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: microCMS env
-        env:
-          NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN }}
-          NEXT_PUBLIC_MICROCMS_APIKEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_APIKEY }}
-      
       # - name: 確認
       #   run: echo '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}'
 
@@ -42,6 +37,9 @@ jobs:
       - run: ls -a
 
       - name: Build
+        env:
+          NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN }}
+          NEXT_PUBLIC_MICROCMS_APIKEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_APIKEY }}
         run: yarn build
 
       # - name: Deploy
