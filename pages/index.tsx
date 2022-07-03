@@ -9,7 +9,6 @@ import { client } from '../libs/client';
 import { microcmsDataType } from '../models/microcms';
 
 const Home: NextPage<{ blogs: microcmsDataType }> = (props) => {
-  console.log(props.blogs);
   return (
     <>
       <Head>

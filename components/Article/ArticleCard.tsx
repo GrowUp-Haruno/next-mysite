@@ -1,5 +1,6 @@
 import { NextPage } from 'next';
 import Image from 'next/image';
+import { microCMSLoader } from '../../libs/client';
 import { formatDate } from '../../libs/formatDate';
 import { contentsType } from '../../models/microcms';
 import style from './ArticleCard.module.scss';
@@ -10,18 +11,25 @@ export const ArticleCard: NextPage<{ contents: contentsType }> = (props) => {
 
   return (
     <article className={style.articleCard}>
-      <Image src={props.contents.eyecatch.url} alt="サムネイル１" width={360} height={189} objectFit="contain" />
+      <Image
+        loader={microCMSLoader}
+        src={props.contents.eyecatch.url}
+        alt="サムネイル１"
+        width={360}
+        height={189}
+        objectFit="contain"
+      />
       <div>
         <h3>{props.contents.subTitle}</h3>
         <h2>{props.contents.mainTitle}</h2>
         <p>
           <time dateTime={props.contents.createdAt}>
-            <Image src="/icons/filePenSolid.svg" width={12} height={12} alt="作成日時" />
+            {/* <Image src="/icons/filePenSolid.svg" width={12} height={12} alt="作成日時" /> */}
             {createDate}
           </time>
 
           <time dateTime={props.contents.updatedAt}>
-            <Image src="/icons/arrowsRotateSolid.svg" width={12} height={12} alt="更新日時" />
+            {/* <Image src="/icons/arrowsRotateSolid.svg" width={12} height={12} alt="更新日時" /> */}
             {updateDate}
           </time>
         </p>

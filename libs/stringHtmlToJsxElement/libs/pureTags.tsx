@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
+import { microCMSLoader } from '../../client';
 
 export const h1: FC<{ children?: JSX.Element }> = (props) => <h1>{props.children}</h1>;
 export const h2: FC<{ children?: JSX.Element }> = (props) => <h2>{props.children}</h2>;
@@ -15,5 +16,5 @@ export const a: FC<{
   anchorAttr?: React.AnchorHTMLAttributes<HTMLAnchorElement>;
 }> = (props) => <a href={props.anchorAttr?.href}>{props.children}</a>;
 export const img: FC<{ imgAttr?: React.ImgHTMLAttributes<HTMLImageElement> }> = (props) => {
-  return <Image src={props.imgAttr?.src!} alt="" width={360} height={189} />;
+  return <Image loader={microCMSLoader} src={props.imgAttr?.src!} alt={props.imgAttr?.alt!} width={360} height={189} />;
 };
