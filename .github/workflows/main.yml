@@ -1,0 +1,45 @@
+name: learn GH Actions
+
+on:
+  push:
+    branches: main
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - uses: actions/cache@v3
+        id: node_modules_cache_id
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      # - name: 確認
+      #   run: echo '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}'
+      
+      # - name: 確認その２
+      #   run: echo '${{ toJSON(steps.node_modules_cache_id.outputs) }}'
+        
+      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        run: yarn install
+
+      # - run: npm ls --depth=0
+
+      - name: Build
+        run: yarn build
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: ${{ github.ref == 'refs/heads/main' }}
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./dist
