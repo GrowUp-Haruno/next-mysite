@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: serverless package and deploy
-        env:
-          NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN }}
-          NEXT_PUBLIC_MICROCMS_APIKEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_APIKEY }}
 
       - uses: actions/checkout@v3
 
@@ -28,6 +24,11 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
+      - name: microCMS env
+        env:
+          NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICEDOMAIN }}
+          NEXT_PUBLIC_MICROCMS_APIKEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_APIKEY }}
+      
       # - name: 確認
       #   run: echo '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}'
 
