@@ -32,10 +32,11 @@ jobs:
       - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: yarn install
 
-      # - run: npm ls --depth=0
+      - run: npm ls --depth=0
+      - run: ls -a
 
-      - name: Build
-        run: yarn build
+      # - name: Build
+      #   run: yarn build
 
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
