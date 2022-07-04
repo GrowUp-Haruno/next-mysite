@@ -42,6 +42,9 @@ jobs:
           NEXT_PUBLIC_MICROCMS_APIKEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_APIKEY }}
         run: yarn build
 
+      - name: add .nojekyll
+        run: touch ./out/nojekyll
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
