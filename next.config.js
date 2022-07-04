@@ -6,6 +6,7 @@ const nextConfig = {
     loader: 'custom',
     domains: ['images.microcms-assets.io'],
   },
+  trailingSlash: true
 };
 
 module.exports = nextConfig
