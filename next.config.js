@@ -6,7 +6,6 @@ const nextConfig = {
     loader: 'custom',
     domains: ['images.microcms-assets.io'],
   },
-  basePath:'./'
 };
 
 module.exports = nextConfig
