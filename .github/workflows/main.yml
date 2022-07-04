@@ -1,8 +1,10 @@
 name: Next.js mysit CICD
 
 on:
-  push:
+  - push:
     branches: main
+  - repository_dispatch:
+    types: [microCMS-Webhook]
 
 jobs:
   nextjs-build-deploy:
