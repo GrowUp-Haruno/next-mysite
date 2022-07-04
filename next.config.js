@@ -7,7 +7,7 @@ const nextConfig = {
     domains: ['images.microcms-assets.io'],
   },
   trailingSlash: true,
-  basePath: process.env.GITHUB_ACTIONS ? '/repository_name' : '',
+  basePath: process.env.GITHUB_ACTIONS ? '/next-mysite' : '',
 };
 
 module.exports = nextConfig
