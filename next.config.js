@@ -6,7 +6,8 @@ const nextConfig = {
     loader: 'custom',
     domains: ['images.microcms-assets.io'],
   },
-  trailingSlash: true
+  trailingSlash: true,
+  basePath: process.env.GITHUB_ACTIONS ? '/repository_name' : '',
 };
 
 module.exports = nextConfig
